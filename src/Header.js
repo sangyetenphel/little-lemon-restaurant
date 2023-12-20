@@ -1,13 +1,20 @@
-import React from 'react';
+import React, {useState} from 'react';
 import logo from './assets/images/logo.jpg';
 
 function Header() {
+    const [showNav, setShowNav] = useState(false);
+
+    const toggleNav = () => {
+        setShowNav(!showNav);
+    }
+
     return (
-        <header className='header'>
+        <header className='wrapper header'>
             <div className='logo'>
                 <img src={logo} alt='Logo'/>
             </div>
-            <nav className='navbar'>
+            <nav className={`navbar ${showNav ? 'show': ''}`}>
+                <button className='hamburger-menu' onClick={toggleNav}>☰</button>
                 <ul>
                     <li><a href=''>Home</a></li>
                     <li><a href=''>About</a></li>

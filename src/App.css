@@ -5,6 +5,10 @@
   padding: 20px 80px;
 }
 
+.hamburger-menu {
+  display: none;
+}
+
 .navbar ul {
   list-style: none;
   display: flex;
@@ -27,10 +31,155 @@
   font-size: small;
 }
 
+.wrapper {
+  padding: 10px 150px;
+}
+
+.grey {
+  background-color: rgb(66, 77, 69);
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two columns layout */
+  grid-gap: 20px; /* Gap between columns */
+  padding: 50px 0;
+}
+
+.text-content h1 {
+  color: #edd92a;
+  margin: 0;
+}
+
+.text-content h2 {
+  color: white;
+  margin: 0;
+}
+
+.text-content p {
+  color: white;
+}
+
+.button {
+  background-color: #edd92a;
+  border-radius: 10px;
+  padding: 10px;
+  border: none;
+  font-weight: bold;
+}
+
+.image-content {
+  position: relative;
+}
+
+.image-content img {
+  width: 200px;
+  border-radius: 20px;
+  position: absolute;
+  bottom: -100px; /* Adjust the bottom offset */
+  right: 0;
+  /* transform: translateX(-50%); */
+}
+
+.specials-heading {
+  display: flex;
+  align-items: center;
+  margin-top: 100px;
+  justify-content: space-between;
+}
+
+.specials-content {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+  margin-bottom: 10px;
+}
+
+.specials-content div {
+  background-color: rgb(234, 233, 233);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.specials-content div h4, p  {
+  padding: 20px;
+}
+
+.specials-content img {
+  width: 100%;
+  height: 250px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  /* display: block; */
+}
+
+.specials-content > div > div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.specials-content > div > div h4,
+.specials-content > div > div p {
+  margin: 0;
+}
+
+.price {
+  color: #edb22a;
+}
+
+.delivery {
+  font-weight: bold;
+}
+
+.delivery img {
+  height: 20px;
+  width: 20px;
+}
+
 footer {
   background-color: rgb(44, 43, 43);
   height: 70px;
   width: 100%;
   bottom: 0;
-  position: fixed;
+}
+
+
+@media (max-width:768px) {
+  .header {
+    position: relative;
+    padding: 20px;
+  }
+
+  .hamburger-menu {
+    display: block;
+    font-size: 24px;
+    background: none;
+    cursor: pointer;
+  }
+
+  .navbar.show ul {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  .navbar {
+    margin-top: 20px;
+  }
+
+  .navbar ul {
+    display: none;
+  }
+
+  .navbar li {
+    text-align: center;
+    margin: 10px 0;
+  }
 }
