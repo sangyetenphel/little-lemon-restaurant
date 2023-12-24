@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import logo from './assets/images/logo.jpg';
+import { Link } from 'react-router-dom';
 
 function Header() {
     const [showNav, setShowNav] = useState(false);
@@ -16,12 +17,12 @@ function Header() {
             <nav className={`navbar ${showNav ? 'show': ''}`}>
                 <button className='hamburger-menu' onClick={toggleNav}>☰</button>
                 <ul>
-                    <li><a href=''>Home</a></li>
-                    <li><a href=''>About</a></li>
-                    <li><a href=''>Menu</a></li>
-                    <li><a href=''>Reservations</a></li>
-                    <li><a href=''>Order Online</a></li>
-                    <li><a href=''>Login</a></li>
+                    <Link to='/' className='nav-items'>Home</Link>
+                    <Link to='/' className='nav-items'>About</Link>
+                    <Link to='/' className='nav-items'>Menu</Link>
+                    <Link to='/reservations' className='nav-items'>Reservations</Link>
+                    <Link to='/' className='nav-items'>Order Online</Link>
+                    <Link to='/' className='nav-items'>Login</Link>
                 </ul>
             </nav>
         </header>
