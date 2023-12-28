@@ -1,11 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import mediterraneanTacos from './assets/images/mediterranean-tacos.jpg';
 import greekSalad from './assets/images/greek-salad.jpg';
 import bruchetta from './assets/images/bruchetta.jpg';
 import lemonDessert from './assets/images/lemon-dessert.jpg';
-import delivery from './assets/images/delivery.jpg'
+import delivery from './assets/images/delivery.jpg';
 
-function Header() {
+function Main() {
     return (
         <main>
             <div className='wrapper grey'>
@@ -14,7 +15,9 @@ function Header() {
                         <h1>Little Lemon</h1>
                         <h2>Chicago</h2>
                         <p>We are a family owned Mediterranean restaurant, focused on tradition recipies served with a modern twist.</p>
-                        <button className='button'>Reserve a Table</button>
+                        <Link to='/reservations'>
+                            <button className='button'>Reserve a Table</button>
+                        </Link>
                     </div>
                     <div className='image-content'>
                         <img src={mediterraneanTacos} alt='An image of a hand holding four mediterranean tacos.'/>
@@ -67,4 +70,4 @@ function Header() {
     );
 }
 
-export default Header;
+export default Main;

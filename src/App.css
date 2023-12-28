@@ -52,6 +52,11 @@
   padding: 10px;
   border: none;
   font-weight: bold;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #9b7f3d;
 }
 
 .image-content {
@@ -140,7 +145,7 @@
   flex-direction: column;
 }
 
-#reserve-table-form input, textarea {
+#reserve-table-form input, select {
   background-color: rgb(181, 179, 179);
   border: none;
   padding: 10px;
@@ -151,10 +156,6 @@
   width: calc(100% - 20px);
 }
 
-#reserve-table-form textarea {
-  height: 200px;
-}
-
 .input-group {
   display: flex;
   align-items: center;
@@ -162,11 +163,6 @@
 
 #reserve-table-form label img{
   width: 50px;
-}
-
-.input-wrapper {
-  display: flex;
-  flex: 1;
 }
 
 .center {
