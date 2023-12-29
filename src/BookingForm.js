@@ -8,17 +8,40 @@ import peopleIcon from './assets/images/people.png';
 import occassionIcon from './assets/images/occassion.png';
 import message from './assets/images/conversation.png';
 import email from './assets/images/mail.png';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { submitAPI } from './mockAPI';
+import { useNavigate } from 'react-router-dom';
 
 function BookingForm(props) {
     const [date, setDate] = useState('');
     const [people, setPeople] = useState(1);
     const [occassion, setOccassion] = useState('Birthday');
+    const [submittedData, setSubmittedData] = useState();
+    const navigate = useNavigate();
 
     const handleDateChange = (e) => {
         setDate(e.target.value);
         props.dispatch({date: e.target.value });
     }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const formData = {
+            date,
+            people,
+            occassion
+        }
+        setSubmittedData(formData);
+    }
+
+    useEffect(()=> {
+        if (submittedData){
+            console.log('submittedData', submittedData)
+            submitAPI(submittedData)
+            .then((response) => navigate('/confirmed-booking'))
+        }
+    }, [submittedData]);
+
     return (
         <>
             <div className="wrapper grey">
@@ -37,7 +60,7 @@ function BookingForm(props) {
                     <img src={noSmoking} />
                     <img src={noCredit} />
                 </div>
-                <form id='reserve-table-form'>
+                <form id='reserve-table-form' onSubmit={handleSubmit}>
                     <div className='input-group'>
                         <label htmlFor='res-date'>
                             <img src={dateIcon}/>
@@ -47,12 +70,9 @@ function BookingForm(props) {
                                 <img src={timeIcon} />
                             </label>
                             <select id='res-time' value={props.time} >
-                                <option>17:00</option>
-                                <option>18:00</option>
-                                <option>19:00</option>
-                                <option>20:00</option>
-                                <option>21:00</option>
-                                <option>22:00</option>
+                                {props.state && props.state?.availableTimes?.map((time, index)=> (
+                                    <option key={index}>{time}</option>
+                                ))}
                             </select>
                     </div>
                     <div className='input-group'>

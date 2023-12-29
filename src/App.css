@@ -141,7 +141,6 @@
 }
 
 #reserve-table-form {
-  /* display: flex; */
   flex-direction: column;
 }
 
@@ -152,7 +151,7 @@
   border-radius: 5px;
   margin: 10px;
   flex: 1;
-  box-sizing: border-box; /* Include padding and borders in total width */
+  box-sizing: border-box; 
   width: calc(100% - 20px);
 }
 
