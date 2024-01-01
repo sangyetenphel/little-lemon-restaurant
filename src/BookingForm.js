@@ -13,13 +13,18 @@ import { submitAPI } from './mockAPI';
 import { useNavigate } from 'react-router-dom';
 
 function BookingForm(props) {
-    const [date, setDate] = useState('');
+    const today = new Date().toISOString().substr(0, 10);
+    const [date, setDate] = useState(today);
     const [people, setPeople] = useState(1);
     const [occassion, setOccassion] = useState('Birthday');
     const [submittedData, setSubmittedData] = useState();
     const navigate = useNavigate();
 
     const handleDateChange = (e) => {
+        if ((e.target.value) < today) {
+            alert('Cant book a table from the past!');
+            return;
+        }
         setDate(e.target.value);
         props.dispatch({date: e.target.value });
     }
@@ -96,7 +101,7 @@ function BookingForm(props) {
                             <img src={message} />
                             <img src={email} />
                         </div>
-                        <button className="button">Continue</button>
+                        <button aria-label='On Click' className="button">Continue</button>
                     </div>
                 </form>
             </div>
